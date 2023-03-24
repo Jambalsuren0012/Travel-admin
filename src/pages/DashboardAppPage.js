@@ -29,7 +29,7 @@ export default function DashboardAppPage() {
 
   const { user } = useContext(AuthContext);
 
-  if (!user) {
+  if (!user) {  
     return <Navigate to="/login" />;
   }
 
