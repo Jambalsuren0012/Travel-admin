@@ -16,8 +16,8 @@ export default function LoginForm() {
   const { setUser } = useContext(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState('saraa@gmail.com');
-  const [password, setPassword] = useState('pass12345');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleClick = async () => {
     // navigate('/dashboard', { replace: true });
@@ -34,13 +34,16 @@ export default function LoginForm() {
   return (
     <>
       <Stack spacing={3}>
-        <TextField name="email" label="Имэйл" value={email} />
+        <TextField name="email" label="Имэйл" value={email} onChange={(e)=> setEmail(e.target.value)} />
 
         <TextField
           name="password"
           label="Нууц үг"
           type={showPassword ? 'text' : 'password'}
           value={password}
+          onChange={(e)=>{
+            setPassword(e.target.value)
+          }}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
